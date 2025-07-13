@@ -45,38 +45,39 @@ jar cfe JsonDemo.jar com.example.JsonDemo -C out .
   #~~~
   ```
   - 아냐 classpath 잘 지정해줬으니 문제될거 없음...  왜 이러지??
-  - **자 이게 중요해** 
-    - javac -cp "lib/gson-2.10.1.jar" ...
-      <br>이건 "컴파일할 때 Gson 클래스(위치 줄테니) 참조 가능하게 해줘"라는 뜻이고,
-      <br>JsonDemo.class 안에는 단지 Gson을 import했다는 흔적만 있음
-      <br>Gson.class 자체가 포함되는 건 아님 
-    - jar cfe JsonDemo.jar com.example.JsonDemo -C out . <br>
-      이 명령은 단지 out/ 디렉토리 안의 .class 파일들만 묶음
-      <br>즉, 외부 라이브러리(gson-2.10.1.jar)는 포함되지 않음!
-    - 결국 fat jar 를 만들어 주거나, manifest.txt 를 직접 만들어 줘야함.
-      - manifest.txt 생성
-      ```vbnet
-      Main-Class: com.example.JsonDemo
-      Class-Path: lib/gson-2.10.1.jar
+- **자 이게 중요해**
+  - ```shell
+    javac -cp "lib/gson-2.10.1.jar" ...
+    ```
+    이건 "컴파일할 때 Gson 클래스(위치 줄테니) 참조 가능하게 해줘"라는 뜻이고,<br>JsonDemo.class 안에는 단지 Gson을 import했다는 흔적만 있음<br>Gson.class 자체가 포함되는 건 아님 
+  - ```shell
+    jar cfe JsonDemo.jar com.example.JsonDemo -C out .
+    ```
+    이 명령은 단지 out/ 디렉토리 안의 .class 파일들만 묶음<br>즉, 외부 라이브러리(gson-2.10.1.jar)는 포함되지 않음!
+  - 결국 fat jar 를 만들어 주거나, manifest.txt 를 직접 만들어 줘야함.
+    - manifest.txt 생성 & 다시 패키징(?)
+    ```vbnet
+    Main-Class: com.example.JsonDemo
+    Class-Path: lib/gson-2.10.1.jar
+    # 여기 개행 한 줄 필요함
+    ```
+    ```shell
+    # m: 사용자 정의 manifest.txt 사용 -> 기존 META-INF/MANIFEST.MF에 덮어 씌워짐 
+    jar cfm JsonDemo.jar manifest.txt -C out .
+    ```
+  - Fat Jar 만들기 (gson.class도 포함시킴)
+    - 모든 .class 파일 + 외부 라이브러리 내용까지 몽땅 jar에 포함하는 방식
+    ```shell
+    mkdir tmp
+    cd tmp
   
-      ```
-      ```shell
-      # m: 사용자 정의 manifest.txt 사용 -> 기존 META-INF/MANIFEST.MF에 덮어 씌워짐 
-      jar cfm JsonDemo.jar manifest.txt -C out .
-      ```
-    - Fat Jar 만들기 (gson.class도 포함시킴)
-      - 모든 .class 파일 + 외부 라이브러리 내용까지 몽땅 jar에 포함하는 방식
-      ```shell
-      mkdir tmp
-      cd tmp
+    # 1. 우리 클래스들 복사
+    jar xf ../JsonDemo.jar
   
-      # 1. 우리 클래스들 복사
-      jar xf ../JsonDemo.jar
+    # 2. gson 클래스들 추출
+    jar xf ../lib/gson-2.10.1.jar
   
-      # 2. gson 클래스들 추출
-      jar xf ../lib/gson-2.10.1.jar
-  
-      # 3. fat jar 만들기
-      jar cfe ../JsonDemo-fat.jar com.example.JsonDemo *
-      ```
-## 이걸 매 외부 라이브러리를 쓸 때 마다, 해줄 수 없잖아? -> 빌드 도구가 그래서 필요한거야!! (의존성!)
+    # 3. fat jar 만들기
+    jar cfe ../JsonDemo-fat.jar com.example.JsonDemo *
+    ```
+> 이걸 매 외부 라이브러리를 쓸 때 마다, 해줄 수 없잖아? 빌드 도구가 그래서 필요한거야!! (의존성!)
