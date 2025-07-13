@@ -94,8 +94,48 @@
 
 ## 기타 참고
 
-- TIL 폴더는 매일 `YYYY-MM-DD.md` 형식으로 작성
+- TIL 폴더는 매일 `YYYY-MM-DD-*.md` 형식으로 작성
 - 필요시 `.md` 정리 파일이나 `docs/` 디렉토리 사용 가능
 - 실제 서비스 수준의 미션은 `projects/` 안에서 독립 실행형으로 구성
 
+```text
+java-daily-study/
+│
+├── README.md                # 전체 목표 및 주차별 계획
+├── .gitignore               # Java, IntelliJ, Gradle/Maven 무시 설정
+│
+├── 0-week-build-bootcamp/   # 0주차: 빌드 수동 체험
+│   ├── 0-1-manual-compile/      # javac 실습
+│   ├── 0-2-jar-package/         # jar 만들기 실습
+│   ├── 0-3-gson-manual/         # 외부 라이브러리 수동 적용
+│   ├── 0-4-why-build-tools/     # 빌드도구 역사 정리
+│   ├── 0-5-maven-demo/          # Maven 실습
+│   ├── 0-6-gradle-demo/         # Gradle 실습
+│   └── 0-7-compare-maven-gradle/ # 비교 정리
+│
+├── 1-week-java-basic/       # 1주차: 자바 문법 & JVM
+│   └── ...
+├── 2-week-functions-classes/
+├── 3-week-oop-design/
+├── 4-week-collection-junit/
+├── 5-week-io-stream/
+├── 6-week-build-ci/
+├── 7-week-spring-core/
+├── 8-week-spring-mvc/
+├── 9-week-jpa-mysql/
+├── 10-week-security/
+├── 11-week-deploy-docker/
+├── 12-week-final-project/
+│
+├── til/                     # Today I Learned
+│   ├── 2025-07-07.md
+│   ├── 2025-07-08.md
+│   └── ...
+│
+└── docs/                    # 정리 자료
+    ├── maven-vs-gradle.md
+    ├── why-build-tools.md
+    ├── common-errors.md
+    └── naming-convention.md
+```
 ---
