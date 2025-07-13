@@ -64,3 +64,6 @@ jar xf hello.jar  # 압축풀기
 
 ## 정리
 - JAR은 ZIP 기반의 Java 배포 포맷이다. jar cfe 옵션으로 실행 진입점 지정 가능하며, Main-Class를 명시하지 않으면 java -jar 실행 불가하다.
+- JAR는 컴파일러가 아님. 즉 .java 를 압축하면 실행이 안됨. 꼭 .class를 압축해야 의미가있음
+- 자바는 compile + MANIFEST 설정이 있어야 실행 가능한 JAR이 됨
+- MANIFEST 에 대해선 차차 더 알아보자
