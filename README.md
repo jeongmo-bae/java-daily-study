@@ -114,7 +114,20 @@ java-daily-study/
 │   └── 0-7-compare-maven-gradle/ # 비교 정리
 │
 ├── 1-week-java-basic/       # 1주차: 자바 문법 & JVM
-│   └── ...
+│   ├── 1-1-variables-and-types/       # 변수, 자료형, 출력
+│   │    └── VariableDemo.java
+│   ├── 1-2-condition-loop/            # 조건문, 반복문
+│   │   ├── IfExample.java
+│   │   ├── ForLoopDemo.java
+│   │   └── Gugudan.java               # 구구단 출력
+│   ├── 1-3-array-and-input/           # 배열과 입력
+│   │   └── SimpleCalculator.java
+│   ├── 1-4-jvm-and-memory/            # JVM 구조, 메모리 설명
+│   │   ├── jvm-memory-structure.md
+│   │   └── compile-run-flow.md
+│   └── 1-5-summary/                   # 정리 마무리
+│       └── week1-summary.md
+│
 ├── 2-week-functions-classes/
 ├── 3-week-oop-design/
 ├── 4-week-collection-junit/
