@@ -1,6 +1,6 @@
-package com.study.day1;
+package com.study.week1_java_basic;
 
-public class DataTypes {
+public class _01_DataTypes {
     public static void main(String[] args){
         usePrimitive();
         useWrapper();
