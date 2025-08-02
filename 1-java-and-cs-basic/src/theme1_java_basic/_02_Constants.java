@@ -1,4 +1,4 @@
-package com.study.theme1_java_basic;
+package theme1_java_basic;
 
 public class _02_Constants {
     public static void main(String[] args) {
