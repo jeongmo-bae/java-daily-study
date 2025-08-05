@@ -27,16 +27,41 @@ public class BlackBox {
         this.color = color;
     }
 
-    // Method
-    // getModelName method
-    String getModelName() {
-        return this.modelName;
+    // getterSetter
+    public String getModelName() {
+        return modelName;
     }
-    // getResolution method
-    String getResolution() {
-        return this.resolution;
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
-    // autoReport
+    public String getResolution() {
+        if(resolution == null || resolution.isEmpty()){
+            return "판매자에게 문의해 주세요";
+        } else {
+            return resolution;
+        }
+    }
+    public void setResolution(String resolution) {
+        this.resolution = resolution;
+    }
+    public int getPrice() {
+        if (this.price > 100000){
+            return price;
+        } else {
+            return 100000;
+        }
+    }
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    public String getColor() {
+        return color;
+    }
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    // method
     int autoReport(){
         if(this.canAutoReport) {
             System.out.println("충돌이 감지되어 자동으로 신고합니다");
@@ -49,9 +74,8 @@ public class BlackBox {
     void alertInsertMemCard(int capacity){
         System.out.println("메모리 카드가 삽입 되었습니다.\n용량은 " + capacity + "GB 입니다.");
     }
-    // showDateTime : 날짜 정보 포함 여부
-    // showSpeed : 속도 정보 표시 여부
-    // min : 영상 기록 단위(분)
+
+    // method overloading
     void record(boolean showDateTime, boolean showSpeed, int min){
         System.out.println("녹화를 시작합니다.");
         if(showDateTime){
@@ -62,15 +86,16 @@ public class BlackBox {
         }
         System.out.println("영상은 " + min + "분 단위로 기록됩니다");
     }
-    // Method overloading
     void record(){
         record(true,true,5);
     }
+
     // Class method
     static void callServiceCenter(){
         System.out.println("서비스 센터로 연결합니다");
         //modelName = "TEST"; java: non-static variable modelName cannot be referenced from a static context
     }
+
     // This
     void  appendModelName(String modelName) {
         this.modelName += modelName;
