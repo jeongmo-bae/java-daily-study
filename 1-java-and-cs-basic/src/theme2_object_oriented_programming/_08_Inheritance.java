@@ -10,9 +10,9 @@ public class _08_Inheritance {
         FactoryCam factoryCam = new FactoryCam();
         SpeedCam speedCam = new SpeedCam();
 
-        System.out.println(camera.name);
-        System.out.println(factoryCam.name);
-        System.out.println(speedCam.name);
+        System.out.println(camera.getName());
+        System.out.println(factoryCam.getName());
+        System.out.println(speedCam.getName());
         camera.takePicture();
         factoryCam.recordVideo();
         speedCam.takePicture();
