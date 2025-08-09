@@ -1,5 +1,11 @@
 package theme2_object_oriented_programming.quiz;
 
+import theme2_object_oriented_programming.abscamera.SpeedCam;
+import theme2_object_oriented_programming.detector.AccidentDetector;
+import theme2_object_oriented_programming.reporter.VideoReporter;
+
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
         Burger[] burgers = new Burger[3];
@@ -13,5 +19,11 @@ public class Main {
             burger.cook();
             System.out.println("----------------------");
         }
+        System.out.println("===========================================");
+        SpeedCam speedCam = new SpeedCam();
+        speedCam.setDetector(new AccidentDetector());
+        speedCam.setReporter(new VideoReporter());
+        speedCam.detect();
+        speedCam.report();
     }
 }
