@@ -1,9 +1,8 @@
 package theme3_generics;
 
-import theme3_generics.coffee.CoffeeByAny;
-import theme3_generics.coffee.CoffeeByName;
-import theme3_generics.coffee.CoffeeByNickname;
-import theme3_generics.coffee.CoffeeByNumber;
+import theme3_generics.coffee.*;
+import theme3_generics.user.User;
+import theme3_generics.user.VIPUser;
 
 public class _02_GenericClass {
     public static void main(String[] args) {
@@ -31,6 +30,20 @@ public class _02_GenericClass {
         System.out.println("========================");
         int cIntegerName = cInteger.name;
         System.out.println(cIntegerName);
-        
+        System.out.println("========================");
+        CoffeeByUser<VIPUser> cVIP = new CoffeeByUser<>(new VIPUser("배정모"));
+        cVIP.ready();
+        System.out.println("========================");
+        orderCoffee("qowjdah");
+        System.out.println("========================");
+        CoffeeOrder<Integer , String> test = orderCoffee(37,"라떼");
+        System.out.println(test.getClass());
+        System.out.println(test.getName() + " 님 " + test.getCoffee() + " 주문 완료되었습니다.");
+    }
+    public static <T>  void orderCoffee(T name){
+        System.out.println("커피 준비 완요 : "  + name);
+    }
+    public static <T,U>  CoffeeOrder<T,U> orderCoffee(T name, U coffee){
+        return new CoffeeOrder<>(name,coffee);
     }
 }
