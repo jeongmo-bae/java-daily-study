@@ -7,6 +7,8 @@
 - Set
 - Map
 
+## iterator
+
 ---
 
 ### List
@@ -86,5 +88,72 @@ LinkedList<Integer> linkedList = new LinkedList<>();
 - setFirst() / setLast()
 
 ---
-
 ### Set
+
+#### HashSet
+- java.util.HashSet
+- 중복 허용 X , 순서 보장 X
+- index 기반 자료구조가 아님 -> HashMap 에서 Key 만 관리하는것이라 보면됨
+- 즉  get,set 메서드가 없지
+
+#### LinkedHashSet
+- 중복 허용 X , 순서 보장 O
+
+---
+### MAP
+- Key ,Value pair
+
+#### HashMap
+- java.util.HashMap
+- 중복 허용 X , 순서 보장 X
+- HashMap<K, V>
+- 데이터 추가
+  - put(Key, Value)
+- 데이터 조회
+  - get(Key)
+  - keySet()  / values()
+- 데이터 삭제
+  - remove(Key)
+  - clear(Key)
+```java
+for (Map.Entry<String, Integer> entry :  map.entrySet()){
+    String key = entry.getKey();
+    Integer value =  entry.getValue();
+    System.out.println("Key  : " + key +  " , Value : "  + value);
+}
+```
+#### LinkedHashMap
+- 중복 허용 X , 순서 보장 O
+
+---
+
+### iterator
+- java.util.Iterator
+- Java Collection 모두 가능(각 컬렉션이 Iterator 인터페이스를 구현하고 있음) 
+  - map 은 Key Value 각각 가능하겠지
+  - 아니면 entrySet() 써야겠지?!!!
+- .next()
+- .hasNext()
+- .remove()
+
+```java
+Iterator<String> iterator = list.iterator();
+for (int i = 0; i < list.size(); i++) {
+    System.out.println(iterator.next());
+}
+System.out.println("==========================");
+iterator =  list.iterator();
+while (iterator.hasNext()){
+    System.out.println(iterator.next());
+}
+System.out.println("==========================");
+iterator =  list.iterator();
+while (iterator.hasNext()){
+    String s = iterator.next();
+    if (s.equals("(unknown)")) {
+        iterator.remove();
+    }
+}
+System.out.println(list);
+```
+
