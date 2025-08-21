@@ -10,8 +10,17 @@ public class MainCallable {
     public static void main(String[] args) {
         
         Callable<Integer> callableTest = () -> {
+            for (int i = 0; i < 5; i++) {
+                try{
+                    System.out.println("+++++ " + i + "th iteration +++++");
+                    Thread.sleep(1000);
+                }catch(InterruptedException e){
+                    throw new  RuntimeException(e);
+                }
+            }
             return 1;
         } ;
+
         ExecutorService pool = Executors.newFixedThreadPool(4);
         Future<Integer> f = pool.submit(callableTest);
         try{
@@ -23,5 +32,6 @@ public class MainCallable {
             Throwable cause = e.getCause();
             cause.printStackTrace();
         }       
+        pool.shutdown();
     }
 }
