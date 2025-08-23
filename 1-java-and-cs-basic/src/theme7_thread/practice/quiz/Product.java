@@ -1,4 +1,4 @@
-package theme7_thread.quiz;
+package theme7_thread.practice.quiz;
 
 public class Product implements Productable{
     public String name;

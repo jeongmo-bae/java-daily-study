@@ -1,4 +1,4 @@
-package theme7_thread.clean;
+package theme7_thread.practice.clean;
 
 public class CleanThread extends Thread{
     public void run() {

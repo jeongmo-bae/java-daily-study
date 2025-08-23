@@ -1,6 +1,6 @@
-package theme7_thread;
+package theme7_thread.practice;
 
-import theme7_thread.clean.CleanRunnable;
+import theme7_thread.practice.clean.CleanRunnable;
 
 public class _02_Runnable {
     public static void main(String[] args) {

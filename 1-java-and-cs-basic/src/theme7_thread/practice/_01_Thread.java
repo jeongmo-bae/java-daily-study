@@ -1,6 +1,6 @@
-package theme7_thread;
+package theme7_thread.practice;
 
-import theme7_thread.clean.CleanThread;
+import theme7_thread.practice.clean.CleanThread;
 
 public class _01_Thread {
     public static void main(String[] args) {
