@@ -1,5 +1,7 @@
 package exception.ex0;
 
+import static util.MyLogger.log;
+
 public class NetworkClientV0 {
     private final String address;
 
@@ -8,16 +10,16 @@ public class NetworkClientV0 {
     }
 
     public String connect(){
-        System.out.println(address + " 서버 연결 성공");
+        log(address + " 서버 연결 성공");
         return "success";
     }
 
     public String send(String data){
-        System.out.println(address + " 서버에 데이터 전송 : " + data);
+        log(address + " 서버에 데이터 전송 : " + data);
         return "success";
     }
 
     public void disconnect(){
-        System.out.println(address + " 서버 연결 종료");
+        log(address + " 서버 연결 종료");
     }
 }
