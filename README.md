@@ -1,7 +1,7 @@
 # Java Daily Study
 
 - **시작일:** 2025-07-08  
-- **목표:** 자바 기초 → 자바 고급  
+- **목표:** Java Basic → Java Advanced → Spring 
 - **참고 자료:**
   - ChatGPT로 Q&A, 코드, 피드백
   - [점프, 투 자바](https://wikidocs.net/book/31)
