@@ -1,4 +1,4 @@
-package theme7_thread.practice.quiz;
+package theme7_thread.quiz;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

@@ -1,6 +1,6 @@
-package theme7_thread.practice;
+package theme7_thread;
 
-import theme7_thread.practice.clean.Room;
+import theme7_thread.clean.Room;
 
 // 쓰레드가 동시에 접근해서 문제되는 경우를 해결하기 위해 동기화가 필요해 -> 쓰레드1이 접근한경우 타 쓰레드는 접근을 제한 하는것 (synchronized)
 public class _05_Synchronization {

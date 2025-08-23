@@ -1,4 +1,4 @@
-package theme7_thread.practice.clean;
+package theme7_thread.clean;
 
 public class CleanRunnable implements Runnable{
     @Override

@@ -1,4 +1,4 @@
-package theme7_thread.practice;
+package theme7_thread;
 
 public class _04_MultiThread {
     public static void main(String[] args) {
