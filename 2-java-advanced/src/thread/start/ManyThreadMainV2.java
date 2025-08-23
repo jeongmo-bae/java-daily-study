@@ -1,4 +1,4 @@
-package theme7_thread.thread.start;
+package thread.start;
 
 import static util.MyLogger.log;
 

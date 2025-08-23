@@ -1,6 +1,6 @@
-package theme5_java_functional_programming.lambda.start;
+package lambda.start;
 
-import theme5_java_functional_programming.lambda.Procedure;
+import lambda.Procedure;
 import java.util.Random;
 
 // Use Anonymous Clsss

@@ -1,6 +1,6 @@
-package theme5_java_functional_programming.lambda.lambda1;
+package lambda.lambda1;
 
-import theme5_java_functional_programming.lambda.Procedure;
+import lambda.Procedure;
 
 public class ProcedureMain2 {
     public static void main(String[] args) {

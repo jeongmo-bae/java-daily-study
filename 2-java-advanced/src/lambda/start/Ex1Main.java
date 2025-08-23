@@ -1,4 +1,4 @@
-package theme5_java_functional_programming.lambda.start;
+package lambda.start;
 
 import java.util.Random;
 

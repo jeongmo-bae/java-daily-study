@@ -1,7 +1,6 @@
-package theme5_java_functional_programming.lambda.lambda1;
+package lambda.lambda1;
 
-import testPackage._01_AccessModifierTest;
-import theme5_java_functional_programming.lambda.Procedure;
+import lambda.Procedure;
 
 public class InstanceMain {
     public static void main(String[] args) {

@@ -1,6 +1,5 @@
-package theme7_thread.thread.control;
+package thread.control;
 
-import theme7_thread.thread.start.HelloRunnable;
 
 import static util.MyLogger.log;
 
