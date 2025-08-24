@@ -2,6 +2,12 @@
 
 ## Exception Level
 ```mermaid
+%%{init: {
+  "flowchart": { "curve": "linear" },
+  "theme": "base",
+  "themeVariables": { "fontSize": "16px" }
+}}%%
+
 graph TD
     O[Object]:::root
     O --> T[Throwable]:::throwable
@@ -27,13 +33,22 @@ graph TD
     C --> C4[InterruptedException]:::checked
     C --> C5[FileNotFoundException]:::checked
 
-    %% 스타일 정의
-    classDef root fill:#333,stroke:#fff,color:#fff,font-weight:bold;
-    classDef throwable fill:#666,stroke:#fff,color:#fff,font-weight:bold;
-    classDef error fill:#f44336,stroke:#fff,color:#fff,font-weight:bold;
-    classDef exception fill:#ff9800,stroke:#fff,color:#fff,font-weight:bold;
-    classDef runtime fill:#ffcc80,stroke:#333,color:#000;
-    classDef checked fill:#80deea,stroke:#333,color:#000;
+%% 스타일 정의 (파스텔톤 + 가독성)
+    classDef base fill:#ffffff,stroke:#334155,color:#111827,font-weight:600,font-size:16px;
+
+    classDef root fill:#cbd5e1,stroke:#334155,color:#0f172a,font-weight:700,font-size:18px;     %% slate-300
+    classDef throwable fill:#d1fae5,stroke:#334155,color:#065f46,font-weight:700;               %% emerald-100
+    classDef error fill:#fecaca,stroke:#334155,color:#7f1d1d,font-weight:700;                   %% red-200
+    classDef exception fill:#fde68a,stroke:#334155,color:#78350f,font-weight:700;               %% amber-200
+    classDef runtime fill:#fef3c7,stroke:#334155,color:#7c2d12;                                  %% orange-100
+    classDef checked fill:#bae6fd,stroke:#334155,color:#0c4a6e;                                  %% sky-200
+
+    class O base
+    class T throwable
+    class E error
+    class X exception
+    class R,R1,R2,R3,R4,R5,R6 runtime
+    class C,C1,C2,C3,C4,C5 checked
 ```
 ### 0. Object 
 - 모든 객체의 부모 
