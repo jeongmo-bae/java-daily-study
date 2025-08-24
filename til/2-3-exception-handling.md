@@ -6,7 +6,7 @@
   "flowchart":{"curve":"linear"},
   "theme":"base",
   "themeVariables":{
-    "fontSize":"20px",
+    "fontSize":"15px",
     "lineColor":"#fef08a"
   }
 }}%%
