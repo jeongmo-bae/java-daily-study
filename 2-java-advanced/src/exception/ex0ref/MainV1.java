@@ -1,14 +1,12 @@
-package exception.ex1;
-
-import exception.ex1.NetworkServiceV1_1;
+package exception.ex0ref;
 
 import java.util.Scanner;
 
 import static util.MyLogger.log;
 
 public class MainV1 {
-    public static void main(String[] args) throws Exception {
-        NetworkServiceV1_1 networkService = new NetworkServiceV1_1();
+    public static void main(String[] args)  {
+        NetworkServiceV1 networkService = new NetworkServiceV1();
 
         Scanner scanner = new Scanner(System.in);
         while(true){
