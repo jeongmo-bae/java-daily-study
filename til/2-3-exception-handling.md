@@ -6,7 +6,7 @@
   "flowchart":{"curve":"linear"},
   "theme":"base",
   "themeVariables":{
-    "fontSize":"15px",
+    "fontSize":"16px",
     "lineColor":"#fef08a"
   }
 }}%%
@@ -21,6 +21,12 @@ graph LR
     E --> E2[StackOverflowError]:::error
     E --> E3[VirtualMachineError]:::error
 
+    X --> X1[IOException]:::exception
+    X --> X2[SQLException]:::exception
+    X --> X3[ClassNotFoundException]:::exception
+    X --> X4[InterruptedException]:::exception
+    X --> X5[FileNotFoundException]:::exception
+
     X --> R[RuntimeException]:::runtime
     R --> R1[NullPointerException]:::runtime
     R --> R2[ArrayIndexOutOfBoundsException]:::runtime
@@ -29,20 +35,12 @@ graph LR
     R --> R5[NumberFormatException]:::runtime
     R --> R6[ArithmeticException]:::runtime
 
-    X --> C[Checked Exceptions]:::checked
-    C --> C1[IOException]:::checked
-    C --> C2[SQLException]:::checked
-    C --> C3[ClassNotFoundException]:::checked
-    C --> C4[InterruptedException]:::checked
-    C --> C5[FileNotFoundException]:::checked
-
 %% 스타일 정의 (파스텔톤)
     classDef root fill:#cbd5e1,stroke:#334155,color:#0f172a;
     classDef throwable fill:#d1fae5,stroke:#10b981,color:#064e3b;
     classDef error fill:#fecaca,stroke:#f87171,color:#7f1d1d;
-    classDef exception fill:#fde68a,stroke:#fbbf24,color:#78350f;
+    classDef exception fill:#fef3c7,stroke:#f59e0b,color:#7c2d12;
     classDef runtime fill:#bae6fd,stroke:#38bdf8,color:#0c4a6e;
-    classDef checked fill:#fef3c7,stroke:#f59e0b,color:#7c2d12;
 ```
 ### 0. Object 
 - 모든 객체의 부모 
