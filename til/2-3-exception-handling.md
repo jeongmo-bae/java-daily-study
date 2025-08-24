@@ -33,23 +33,23 @@ graph TD
     C -- CHECKED --> C4[InterruptedException]:::checked
     C -- CHECKED --> C5[FileNotFoundException]:::checked
 
-%% 스타일 정의 (파스텔톤 + 간선 색 맞춤)
-    classDef root fill:#cbd5e1,stroke:#334155,color:#0f172a,font-weight:700,font-size:22px;      %% slate-300
-    classDef throwable fill:#d1fae5,stroke:#10b981,color:#064e3b,font-weight:700;                %% emerald-100
-    classDef error fill:#fecaca,stroke:#f87171,color:#7f1d1d,font-weight:700;                    %% red-200
-    classDef exception fill:#fde68a,stroke:#fbbf24,color:#78350f;font-weight:700;                %% amber-200
-    classDef runtime fill:#fef3c7,stroke:#f59e0b,color:#7c2d12;font-weight:600;                  %% orange-100
-    classDef checked fill:#bae6fd,stroke:#38bdf8,color:#0c4a6e;font-weight:600;                  %% sky-200
+%% 스타일 정의 (파스텔톤)
+    classDef root fill:#cbd5e1,stroke:#334155,color:#0f172a;
+    classDef throwable fill:#d1fae5,stroke:#10b981,color:#064e3b;
+    classDef error fill:#fecaca,stroke:#f87171,color:#7f1d1d;
+    classDef exception fill:#fde68a,stroke:#fbbf24,color:#78350f;
+    classDef runtime fill:#fef3c7,stroke:#f59e0b,color:#7c2d12;
+    classDef checked fill:#bae6fd,stroke:#38bdf8,color:#0c4a6e;
 
-%% 간선 색상
-    linkStyle 0 stroke:#10b981,stroke-width:2px;    %% Object -> Throwable
-    linkStyle 1 stroke:#f87171,stroke-width:2px;    %% Throwable -> Error
-    linkStyle 2 stroke:#fbbf24,stroke-width:2px;    %% Throwable -> Exception
-    linkStyle 3,4,5 stroke:#f87171,stroke-width:2px;%% Error -> Error types
-    linkStyle 6 stroke:#f59e0b,stroke-width:2px;    %% Exception -> RuntimeException
-    linkStyle 7,8,9,10,11,12 stroke:#f59e0b,stroke-width:2px; %% RuntimeException -> children
-    linkStyle 13 stroke:#38bdf8,stroke-width:2px;   %% Exception -> Checked Exceptions
-    linkStyle 14,15,16,17,18 stroke:#38bdf8,stroke-width:2px; %% Checked -> children
+%% 간선 색상 (출발지 카테고리 색에 맞춤)
+    linkStyle 0 stroke:#10b981,stroke-width:2px;   %% Object -> Throwable
+    linkStyle 1 stroke:#f87171,stroke-width:2px;   %% Throwable -> Error
+    linkStyle 2 stroke:#fbbf24,stroke-width:2px;   %% Throwable -> Exception
+    linkStyle 3,4,5 stroke:#f87171,stroke-width:2px;    %% Error -> 자식들
+    linkStyle 6 stroke:#f59e0b,stroke-width:2px;   %% Exception -> RuntimeException
+    linkStyle 7,8,9,10,11,12 stroke:#f59e0b,stroke-width:2px; %% RuntimeException -> 자식들
+    linkStyle 13 stroke:#38bdf8,stroke-width:2px;  %% Exception -> Checked Exceptions
+    linkStyle 14,15,16,17,18 stroke:#38bdf8,stroke-width:2px; %% Checked -> 자식들
 ```
 ### 0. Object 
 - 모든 객체의 부모 
