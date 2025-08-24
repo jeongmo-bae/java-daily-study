@@ -41,8 +41,8 @@ graph TD
     classDef throwable fill:#d1fae5,stroke:#10b981,color:#064e3b;
     classDef error fill:#fecaca,stroke:#f87171,color:#7f1d1d;
     classDef exception fill:#fde68a,stroke:#fbbf24,color:#78350f;
-    classDef runtime fill:#fef3c7,stroke:#f59e0b,color:#7c2d12;
-    classDef checked fill:#bae6fd,stroke:#38bdf8,color:#0c4a6e;
+    classDef runtime fill:#bae6fd,stroke:#38bdf8,color:#0c4a6e;
+    classDef checked fill:#fef3c7,stroke:#f59e0b,color:#7c2d12;
 ```
 ### 0. Object 
 - 모든 객체의 부모 
