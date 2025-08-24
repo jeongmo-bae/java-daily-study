@@ -2,36 +2,39 @@
 
 ## Exception Level
 ```mermaid
-%%{init: {
-  "flowchart": { "curve": "linear" },
-  "theme": "base",
-  "themeVariables": { "fontSize": "20px" }
+%%{init:{
+  "flowchart":{"curve":"linear"},
+  "theme":"base",
+  "themeVariables":{
+    "fontSize":"20px",
+    "lineColor":"#fef08a"
+  }
 }}%%
 
 graph TD
     O[Object]:::root
-    O -- ROOT --> T[Throwable]:::throwable
-    T -- THROWABLE --> E[Error]:::error
-    T -- THROWABLE --> X[Exception]:::exception
+    O --> T[Throwable]:::throwable
+    T --> E[Error]:::error
+    T --> X[Exception]:::exception
 
-    E -- ERROR --> E1[OutOfMemoryError]:::error
-    E -- ERROR --> E2[StackOverflowError]:::error
-    E -- ERROR --> E3[VirtualMachineError]:::error
+    E --> E1[OutOfMemoryError]:::error
+    E --> E2[StackOverflowError]:::error
+    E --> E3[VirtualMachineError]:::error
 
-    X -- EXCEPTION --> R[RuntimeException]:::runtime
-    R -- RUNTIME --> R1[NullPointerException]:::runtime
-    R -- RUNTIME --> R2[ArrayIndexOutOfBoundsException]:::runtime
-    R -- RUNTIME --> R3[ClassCastException]:::runtime
-    R -- RUNTIME --> R4[IllegalArgumentException]:::runtime
-    R -- RUNTIME --> R5[NumberFormatException]:::runtime
-    R -- RUNTIME --> R6[ArithmeticException]:::runtime
+    X --> R[RuntimeException]:::runtime
+    R --> R1[NullPointerException]:::runtime
+    R --> R2[ArrayIndexOutOfBoundsException]:::runtime
+    R --> R3[ClassCastException]:::runtime
+    R --> R4[IllegalArgumentException]:::runtime
+    R --> R5[NumberFormatException]:::runtime
+    R --> R6[ArithmeticException]:::runtime
 
-    X -- EXCEPTION --> C[Checked Exceptions]:::checked
-    C -- CHECKED --> C1[IOException]:::checked
-    C -- CHECKED --> C2[SQLException]:::checked
-    C -- CHECKED --> C3[ClassNotFoundException]:::checked
-    C -- CHECKED --> C4[InterruptedException]:::checked
-    C -- CHECKED --> C5[FileNotFoundException]:::checked
+    X --> C[Checked Exceptions]:::checked
+    C --> C1[IOException]:::checked
+    C --> C2[SQLException]:::checked
+    C --> C3[ClassNotFoundException]:::checked
+    C --> C4[InterruptedException]:::checked
+    C --> C5[FileNotFoundException]:::checked
 
 %% 스타일 정의 (파스텔톤)
     classDef root fill:#cbd5e1,stroke:#334155,color:#0f172a;
@@ -40,16 +43,6 @@ graph TD
     classDef exception fill:#fde68a,stroke:#fbbf24,color:#78350f;
     classDef runtime fill:#fef3c7,stroke:#f59e0b,color:#7c2d12;
     classDef checked fill:#bae6fd,stroke:#38bdf8,color:#0c4a6e;
-
-%% 간선 색상 (출발지 카테고리 색에 맞춤)
-    linkStyle 0 stroke:#10b981,stroke-width:2px;   %% Object -> Throwable
-    linkStyle 1 stroke:#f87171,stroke-width:2px;   %% Throwable -> Error
-    linkStyle 2 stroke:#fbbf24,stroke-width:2px;   %% Throwable -> Exception
-    linkStyle 3,4,5 stroke:#f87171,stroke-width:2px;    %% Error -> 자식들
-    linkStyle 6 stroke:#f59e0b,stroke-width:2px;   %% Exception -> RuntimeException
-    linkStyle 7,8,9,10,11,12 stroke:#f59e0b,stroke-width:2px; %% RuntimeException -> 자식들
-    linkStyle 13 stroke:#38bdf8,stroke-width:2px;  %% Exception -> Checked Exceptions
-    linkStyle 14,15,16,17,18 stroke:#38bdf8,stroke-width:2px; %% Checked -> 자식들
 ```
 ### 0. Object 
 - 모든 객체의 부모 
