@@ -12,16 +12,29 @@
 }}%%
 
 graph TD
+    %% 1) 상단 루트
     O[Object]:::root
     O --> T[Throwable]:::throwable
-    T --> E[Error]:::error
-    T --> X[Exception]:::exception
 
+    %% 2) 두번째 줄: Error = Exception (좌우 배치)
+    subgraph ROW2[ ]
+    direction LR
+        E[Error]:::error
+        X[Exception]:::exception
+    end
+    T --> E
+    T --> X
+
+    %% 3) 세번째/네번째 줄: Checked -> Runtime (세로 체인, 가로폭 축소)
+    X --> C[Checked Exceptions]:::checked
+    C --> R[RuntimeException]:::runtime
+
+    %% 4) Error의 자식들(세로로)
     E --> E1[OutOfMemoryError]:::error
     E --> E2[StackOverflowError]:::error
     E --> E3[VirtualMachineError]:::error
 
-    X --> R[RuntimeException]:::runtime
+    %% 5) Runtime의 자식들(세로로)
     R --> R1[NullPointerException]:::runtime
     R --> R2[ArrayIndexOutOfBoundsException]:::runtime
     R --> R3[ClassCastException]:::runtime
@@ -29,7 +42,7 @@ graph TD
     R --> R5[NumberFormatException]:::runtime
     R --> R6[ArithmeticException]:::runtime
 
-    X --> C[Checked Exceptions]:::checked
+    %% 6) Checked의 대표 예시(세로로, 필요시)
     C --> C1[IOException]:::checked
     C --> C2[SQLException]:::checked
     C --> C3[ClassNotFoundException]:::checked
