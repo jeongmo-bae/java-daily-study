@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 import static util.MyLogger.log;
 
-public class MainV1 {
+public class MainV0Ref {
     public static void main(String[] args)  {
-        NetworkServiceV1 networkService = new NetworkServiceV1();
+        NetworkServiceV0Ref networkService = new NetworkServiceV0Ref();
 
         Scanner scanner = new Scanner(System.in);
         while(true){

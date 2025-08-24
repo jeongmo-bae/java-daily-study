@@ -2,25 +2,28 @@ package exception.ex0ref;
 
 import static util.MyLogger.log;
 
-public class NetworkClientV1 {
+public class NetworkClientV0Ref {
     private final String address;
     private boolean isConnectError ;
     private boolean isSendError ;
+    private boolean isOtherError ;
 
-    public NetworkClientV1(String address) {
+    public NetworkClientV0Ref(String address) {
         this.address = address;
     }
 
-    public void connect() throws NetworkClientException {
+    public void connect() throws ConnectException {
         if(isConnectError){
-            throw new NetworkClientException("connectError", address + " 서버 연결 실패!!");
+            throw new ConnectException("connectError", address , "서버 연결 실패!!");
         }
         log(address + " 서버 연결 성공");
     }
 
-    public void send(String data) throws NetworkClientException {
+    public void send(String data) throws Exception {
         if(isSendError){
-            throw new NetworkClientException("sendError", "전송 실패!! : " + data);
+            throw new SendException("sendError", data ,"전송 실패");
+        } else if(isOtherError){
+            throw new Exception("Other Error Occurred");
         }
         log(address + " 서버에 데이터 전송 : " + data);
     }
@@ -34,6 +37,8 @@ public class NetworkClientV1 {
             isConnectError = true;
         } else if (data.contains("error2")) {
             isSendError = true;
+        } else if (data.contains("error")){
+            isOtherError = true;
         }
     }
 
