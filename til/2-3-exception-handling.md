@@ -12,37 +12,16 @@
 }}%%
 
 graph TD
-    %% 위→아래 기본 흐름
     O[Object]:::root
     O --> T[Throwable]:::throwable
+    T --> E[Error]:::error
+    T --> X[Exception]:::exception
 
-    %% 같은 높이에 Error / Exception (연결은 T->E, T->X 그대로)
-    subgraph SAME_ROW[ ]
-    direction LR
-        E[Error]:::error
-        X[Exception]:::exception
-    end
-    T --> E
-    T --> X
-
-    %% Exception 아래에 Checked 먼저, 그 아래 Runtime (연결은 X->C, X->R 그대로)
-    X --> C[Checked Exceptions]:::checked
-    X --> R[RuntimeException]:::runtime
-
-    %% 세로 폭 줄이기: 자식들은 각각 세로로 배치
-    %% Error children
     E --> E1[OutOfMemoryError]:::error
     E --> E2[StackOverflowError]:::error
     E --> E3[VirtualMachineError]:::error
 
-    %% Checked 대표 예시 (세로)
-    C --> C1[IOException]:::checked
-    C --> C2[SQLException]:::checked
-    C --> C3[ClassNotFoundException]:::checked
-    C --> C4[InterruptedException]:::checked
-    C --> C5[FileNotFoundException]:::checked
-
-    %% Runtime children (세로)
+    X --> R[RuntimeException]:::runtime
     R --> R1[NullPointerException]:::runtime
     R --> R2[ArrayIndexOutOfBoundsException]:::runtime
     R --> R3[ClassCastException]:::runtime
@@ -50,7 +29,14 @@ graph TD
     R --> R5[NumberFormatException]:::runtime
     R --> R6[ArithmeticException]:::runtime
 
-%% 스타일 정의 (네가 쓴 파스텔톤 유지)
+    X --> C[Checked Exceptions]:::checked
+    C --> C1[IOException]:::checked
+    C --> C2[SQLException]:::checked
+    C --> C3[ClassNotFoundException]:::checked
+    C --> C4[InterruptedException]:::checked
+    C --> C5[FileNotFoundException]:::checked
+
+%% 스타일 정의 (파스텔톤)
     classDef root fill:#cbd5e1,stroke:#334155,color:#0f172a;
     classDef throwable fill:#d1fae5,stroke:#10b981,color:#064e3b;
     classDef error fill:#fecaca,stroke:#f87171,color:#7f1d1d;
