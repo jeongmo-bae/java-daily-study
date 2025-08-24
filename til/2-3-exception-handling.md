@@ -5,50 +5,51 @@
 %%{init: {
   "flowchart": { "curve": "linear" },
   "theme": "base",
-  "themeVariables": { "fontSize": "16px" }
+  "themeVariables": { "fontSize": "20px" }
 }}%%
 
 graph TD
     O[Object]:::root
-    O --> T[Throwable]:::throwable
-    T --> E[Error]:::error
-    T --> X[Exception]:::exception
+    O -- ROOT --> T[Throwable]:::throwable
+    T -- THROWABLE --> E[Error]:::error
+    T -- THROWABLE --> X[Exception]:::exception
 
-    E --> E1[OutOfMemoryError]:::error
-    E --> E2[StackOverflowError]:::error
-    E --> E3[VirtualMachineError]:::error
+    E -- ERROR --> E1[OutOfMemoryError]:::error
+    E -- ERROR --> E2[StackOverflowError]:::error
+    E -- ERROR --> E3[VirtualMachineError]:::error
 
-    X --> R[RuntimeException]:::runtime
-    R --> R1[NullPointerException]:::runtime
-    R --> R2[ArrayIndexOutOfBoundsException]:::runtime
-    R --> R3[ClassCastException]:::runtime
-    R --> R4[IllegalArgumentException]:::runtime
-    R --> R5[NumberFormatException]:::runtime
-    R --> R6[ArithmeticException]:::runtime
+    X -- EXCEPTION --> R[RuntimeException]:::runtime
+    R -- RUNTIME --> R1[NullPointerException]:::runtime
+    R -- RUNTIME --> R2[ArrayIndexOutOfBoundsException]:::runtime
+    R -- RUNTIME --> R3[ClassCastException]:::runtime
+    R -- RUNTIME --> R4[IllegalArgumentException]:::runtime
+    R -- RUNTIME --> R5[NumberFormatException]:::runtime
+    R -- RUNTIME --> R6[ArithmeticException]:::runtime
 
-    X --> C[Checked Exceptions]:::checked
-    C --> C1[IOException]:::checked
-    C --> C2[SQLException]:::checked
-    C --> C3[ClassNotFoundException]:::checked
-    C --> C4[InterruptedException]:::checked
-    C --> C5[FileNotFoundException]:::checked
+    X -- EXCEPTION --> C[Checked Exceptions]:::checked
+    C -- CHECKED --> C1[IOException]:::checked
+    C -- CHECKED --> C2[SQLException]:::checked
+    C -- CHECKED --> C3[ClassNotFoundException]:::checked
+    C -- CHECKED --> C4[InterruptedException]:::checked
+    C -- CHECKED --> C5[FileNotFoundException]:::checked
 
-%% 스타일 정의 (파스텔톤 + 가독성)
-    classDef base fill:#ffffff,stroke:#334155,color:#111827,font-weight:600,font-size:16px;
+%% 스타일 정의 (파스텔톤 + 간선 색 맞춤)
+    classDef root fill:#cbd5e1,stroke:#334155,color:#0f172a,font-weight:700,font-size:22px;      %% slate-300
+    classDef throwable fill:#d1fae5,stroke:#10b981,color:#064e3b,font-weight:700;                %% emerald-100
+    classDef error fill:#fecaca,stroke:#f87171,color:#7f1d1d,font-weight:700;                    %% red-200
+    classDef exception fill:#fde68a,stroke:#fbbf24,color:#78350f;font-weight:700;                %% amber-200
+    classDef runtime fill:#fef3c7,stroke:#f59e0b,color:#7c2d12;font-weight:600;                  %% orange-100
+    classDef checked fill:#bae6fd,stroke:#38bdf8,color:#0c4a6e;font-weight:600;                  %% sky-200
 
-    classDef root fill:#cbd5e1,stroke:#334155,color:#0f172a,font-weight:700,font-size:18px;     %% slate-300
-    classDef throwable fill:#d1fae5,stroke:#334155,color:#065f46,font-weight:700;               %% emerald-100
-    classDef error fill:#fecaca,stroke:#334155,color:#7f1d1d,font-weight:700;                   %% red-200
-    classDef exception fill:#fde68a,stroke:#334155,color:#78350f,font-weight:700;               %% amber-200
-    classDef runtime fill:#fef3c7,stroke:#334155,color:#7c2d12;                                  %% orange-100
-    classDef checked fill:#bae6fd,stroke:#334155,color:#0c4a6e;                                  %% sky-200
-
-    class O base
-    class T throwable
-    class E error
-    class X exception
-    class R,R1,R2,R3,R4,R5,R6 runtime
-    class C,C1,C2,C3,C4,C5 checked
+%% 간선 색상
+    linkStyle 0 stroke:#10b981,stroke-width:2px;    %% Object -> Throwable
+    linkStyle 1 stroke:#f87171,stroke-width:2px;    %% Throwable -> Error
+    linkStyle 2 stroke:#fbbf24,stroke-width:2px;    %% Throwable -> Exception
+    linkStyle 3,4,5 stroke:#f87171,stroke-width:2px;%% Error -> Error types
+    linkStyle 6 stroke:#f59e0b,stroke-width:2px;    %% Exception -> RuntimeException
+    linkStyle 7,8,9,10,11,12 stroke:#f59e0b,stroke-width:2px; %% RuntimeException -> children
+    linkStyle 13 stroke:#38bdf8,stroke-width:2px;   %% Exception -> Checked Exceptions
+    linkStyle 14,15,16,17,18 stroke:#38bdf8,stroke-width:2px; %% Checked -> children
 ```
 ### 0. Object 
 - 모든 객체의 부모 
