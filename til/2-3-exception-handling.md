@@ -11,7 +11,7 @@
   }
 }}%%
 
-graph TD
+graph LR
     O[Object]:::root
     O --> T[Throwable]:::throwable
     T --> E[Error]:::error
