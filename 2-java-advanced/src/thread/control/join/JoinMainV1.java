@@ -22,10 +22,9 @@ public class JoinMainV1 {
         @Override
         public void run(){
             log("Start SumTask");
-            for (int i = this.startValue; i < this.endValue + 1; i++) {
+            for (int i = this.startValue; i <= this.endValue; i++) {
                 this.result += i;
-                log("+ " + i + " and sleep 1 sec");
-                sleep(1000);
+                sleep(10);
             }
             log("result : " + this.result);
             log("End SumTask");
@@ -33,11 +32,27 @@ public class JoinMainV1 {
     }
     public static void main(String[] args) {
         log("start");
-        SumTask sumTask = new SumTask(2,8);
-        Thread thread = new Thread(sumTask,"thread-1");
-        thread.start();
-        sleep(2000);
-        log("result : " + sumTask.getResult());
+        SumTask sumTask1 = new SumTask(1,50);
+        SumTask sumTask2 = new SumTask(51,100);
+        
+        Thread thread1 = new Thread(sumTask1,"sumTask-1");
+        Thread thread2 = new Thread(sumTask2,"sumTask-2");
+        thread1.start();
+        thread2.start();
+
+        try{
+            thread1.join();
+            thread2.join();
+        }catch(InterruptedException e){
+            log("ERROR : " + e.getMessage());
+        }
+        // while (thread1.getState() != Thread.State.TERMINATED | thread2.getState() != Thread.State.TERMINATED ) {
+        // }
+        // sleep(40);
+        log("sumTask1 result : " + sumTask1.getResult());
+        log("sumTask2 result : " + sumTask2.getResult());
+        log("sumTask1 + sumTask2 : " + (sumTask1.getResult() + sumTask2.getResult()));
+        
         log("end");
     }
 }
