@@ -21,10 +21,10 @@ public class JoinMainV1 {
 
         @Override
         public void run(){
+            sleep(2000);
             log("Start SumTask");
             for (int i = this.startValue; i <= this.endValue; i++) {
                 this.result += i;
-                sleep(10);
             }
             log("result : " + this.result);
             log("End SumTask");
