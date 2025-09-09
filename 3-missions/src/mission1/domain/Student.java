@@ -1,5 +1,6 @@
 package mission1.domain;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Student {
@@ -11,15 +12,21 @@ public class Student {
     private int sumScore;
     private long avgScore;
     
-    public Student(String id, String name, int koreanScore , int englishScore , int mathScore){
-        this.id = id;
-        this.name = name;
-        this.koreanScore = koreanScore;
-        this.englishScore = englishScore;
-        this.mathScore = mathScore;
-        this.sumScore = koreanScore + englishScore + mathScore;
-        this.avgScore = sumScore/3;
+    public Student(){}
+
+    private boolean validateScore(int score){
+        boolean res = true;
+        if (score < 0 | score > 100){
+            System.out.println("점수는 0~100 만 가능합니다.");
+            res = false;
+        }
+        return res;
     }
+
+//    public void setSumScore() {
+//
+//    }
+
     public String getId() {
         return id;
     }
@@ -36,18 +43,24 @@ public class Student {
         return koreanScore;
     }
     public void setKoreanScore(int koreanScore) {
-        this.koreanScore = koreanScore;
+        if(validateScore(koreanScore)){
+            this.koreanScore = koreanScore;
+        }
     }
     public int getEnglishScore() {
         return englishScore;
     }
     public void setEnglishScore(int englishScore) {
-        this.englishScore = englishScore;
+        if(validateScore(koreanScore)) {
+            this.englishScore = englishScore;
+        }
     }
     public int getMathScore() {
         return mathScore;
     }
     public void setMathScore(int mathScore) {
-        this.mathScore = mathScore;
+        if(validateScore(koreanScore)) {
+            this.mathScore = mathScore;
+        }
     }
 }

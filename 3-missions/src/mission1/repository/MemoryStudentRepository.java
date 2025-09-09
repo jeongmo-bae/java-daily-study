@@ -21,8 +21,19 @@ public class MemoryStudentRepository implements StudentRepository{
             throw new Exception("E0001");
         }
     }
+
     @Override
-    public void delete(Student student){
+    public void delete(String id) throws Exception {
+        if(storage.containsKey(id)){
+            storage.remove(id);
+        }else {
+
+        }
+
+    }
+
+    @Override
+    public void update(String id) {
 
     }
     @Override
@@ -33,9 +44,10 @@ public class MemoryStudentRepository implements StudentRepository{
         }
         return studentList;
     }
+
     @Override
-    public Optional<Student> findByName(String name){
-        if(storage.containsKey())
-        return optional.empty();
+    public Optional<Student> findById(String id){
+        Optional<Student> optional = Optional.ofNullable(storage.get(id));
+        return optional;
     }
 }
