@@ -5,6 +5,7 @@ import javax.management.RuntimeErrorException;
 import mission1.domain.Student;
 import mission1.repository.StudentRepository;
 import mission1.repository.MemoryStudentRepository;
+import mission1.service.StudentService;
 
 import java.util.Scanner;
 
@@ -20,19 +21,39 @@ public class Main {
             6. 프로그램 종료
             =====================
             선택 : """;
+    private StudentService studentService = new StudentService();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         while(true){
             System.out.print(Main.menu);
-            int selectedMenu = sc.nextInt();
+            System.out.print("메뉴 번호를 입력하세요: ");
+            String input = sc.nextLine();
+            try {
+                int selectedMenu = Integer.parseInt(input.trim());
+                if(selectedMenu==1){
 
+                } else if (selectedMenu==2) {
 
+                } else if (selectedMenu==3) {
 
+                } else if (selectedMenu==4) {
+
+                } else if (selectedMenu==5) {
+
+                } else if(selectedMenu==6){
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
+                } else {
+                    System.out.println("잘못된 입력 입니다.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("잘못된 입력 입니다.");
+            }
         }
         sc.close();
 
-        Student student = new Student("0001","배정모",50,60,70);
+        Student student = new Student();
         StudentRepository studentRepository = new MemoryStudentRepository();
         try {
             studentRepository.save(student);        
