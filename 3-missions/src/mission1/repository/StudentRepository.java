@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface StudentRepository {
-    void save(Student student);
-    void delete(Student student);
+    void save(Student student) throws Exception;
+    void delete(Student student) throws Exception;
     List<Student> findByAll();
-    Optional<Student> findByName(String name);
+    Optional<Student> findByName(String name) throws Exception;
 }
