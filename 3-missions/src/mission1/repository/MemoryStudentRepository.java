@@ -13,17 +13,12 @@ public class MemoryStudentRepository implements StudentRepository{
     private static Map<String, Student> storage = new HashMap<>();
 
     @Override
-    public void save(Student student) throws Exception{
-        if(!storage.containsKey(student.getId())){
-            storage.put(student.getId(), student);
-            System.out.println("ID : " + student.getId() + ", Name : " + student.getName() + "성적 등록 완료");
-        }else{
-            throw new Exception("E0001");
-        }
+    public void save(Student student) {
+        storage.put(student.getId(), student);
     }
 
     @Override
-    public void delete(String id) throws Exception {
+    public void delete(String id) {
         if(storage.containsKey(id)){
             storage.remove(id);
         }else {
