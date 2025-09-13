@@ -1,6 +1,5 @@
 package mission1.repository;
 
-import java.security.KeyStore.Entry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,23 +18,19 @@ public class MemoryStudentRepository implements StudentRepository{
 
     @Override
     public void delete(String id) {
-        if(storage.containsKey(id)){
-            storage.remove(id);
-        }else {
-
-        }
+        storage.remove(id);
     }
     @Override
-    public void update(String id) {
-
+    public void update(String id, int koreanScore, int englishScore , int mathScore) {
+        storage.get(id).setKoreanScore(koreanScore);
+        storage.get(id).setEnglishScore(englishScore);
+        storage.get(id).setMathScore(mathScore);
     }
 
     @Override
     public List<Student> findByAll(){
         List<Student> studentList = new ArrayList<>();
-        for (Map.Entry<String,Student> entry : storage.entrySet()) {
-            studentList.add(entry.getValue());
-        }
+        studentList = storage.values().stream().toList() ;
         return studentList;
     }
 
