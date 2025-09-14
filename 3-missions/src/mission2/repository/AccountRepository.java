@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AccountRepository {
-    void insertAccount(String accountNo, String ownerName,long initailDepositAmount);
+    void insertAccount(String accountNo, Account account);
     Optional<Account> findByAccountNo(String accountNo);
     List<Account> findAll();
     void deleteAccount(String accountNo);

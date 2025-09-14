@@ -5,10 +5,11 @@ public class Account {
     private String ownerName;
     private long balance = 0L;
 
-    public Account(String accountNo, String ownerName, long initailDepositAmount) {
+    public Account(String accountNo, String ownerName, long initialDeposit) {
         this.accountNo = accountNo;
         this.ownerName = ownerName;
-        this.balance += initailDepositAmount;
+        validateAmount(initialDeposit);
+        this.balance += initialDeposit;
     }
 
     public String getAccountNo() {
@@ -31,13 +32,17 @@ public class Account {
         return balance;
     }
 
-    public void deposit(String accountNo, long amount){
+    public void deposit(long amount){
         validateAmount(amount);
         this.balance += amount;
     }
-    public void withdraw(String accountNo, long amount){
+    public void withdraw(long amount){
         validateAmount(amount);
-        this.balance -= amount;
+        if(balance < amount){
+            throw new RuntimeException(accountNo + " : 잔액 부족, 출금 실패");
+        } else {
+            balance -= amount;
+        }
     }
     private void validateAmount(long amount){
         if(amount <= 0){

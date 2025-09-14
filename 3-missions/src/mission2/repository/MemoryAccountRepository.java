@@ -15,8 +15,7 @@ public class MemoryAccountRepository implements AccountRepository{
     }
 
     @Override
-    public void insertAccount(String accountNo, String ownerName , long initailDepositAmount) {
-        Account account = new Account(accountNo,ownerName,initailDepositAmount);
+    public void insertAccount(String accountNo, Account account) {
         accountStorage.put(accountNo, account);
     }
 
@@ -38,6 +37,7 @@ public class MemoryAccountRepository implements AccountRepository{
     }
 
     @Override
+    // 스토리지 내부 객체 참조를 사용하니, 사실상 필요가 없긴 함.
     public void updateAccount(String accountNo, Account account) {
         accountStorage.replace(accountNo,account);
     }
