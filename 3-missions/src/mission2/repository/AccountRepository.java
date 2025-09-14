@@ -3,10 +3,12 @@ package mission2.repository;
 import mission2.domain.Account;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface AccountRepository {
-    Account findByAccountNo(String accountNo);
+    void insertAccount(String accountNo, String ownerName,long initailDepositAmount);
+    Optional<Account> findByAccountNo(String accountNo);
     List<Account> findAll();
     void deleteAccount(String accountNo);
-    void updateAccount(String accountNo);
+    void updateAccount(String accountNo,Account account);
 }

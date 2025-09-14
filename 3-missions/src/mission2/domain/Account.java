@@ -32,10 +32,17 @@ public class Account {
     }
 
     public void deposit(String accountNo, long amount){
-
+        validateAmount(amount);
+        this.balance += amount;
     }
     public void withdraw(String accountNo, long amount){
-
+        validateAmount(amount);
+        this.balance -= amount;
+    }
+    private void validateAmount(long amount){
+        if(amount <= 0){
+            throw new RuntimeException("거래 금액이 잘못 되었습니다");
+        }
     }
 
 }

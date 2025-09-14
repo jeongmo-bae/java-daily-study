@@ -13,7 +13,7 @@ public class MemoryStudentRepository implements StudentRepository{
 
     @Override
     public void save(Student student) {
-        storage.put(student.getId(), student);
+        MemoryStudentRepository.storage.put(student.getId(), student);
     }
 
     @Override
