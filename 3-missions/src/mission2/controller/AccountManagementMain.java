@@ -44,11 +44,34 @@ public class AccountManagementMain {
                             )
                     );
                 } else if (input.equals("2")) {
-
+                    System.out.println("[입금]");
+                    System.out.println("계좌 번호 : ");
+                    sbInput.append(scanner.nextLine().trim()+";");
+                    System.out.println("입금액 : ");
+                    sbInput.append(scanner.nextLine().trim()+";");
+                    System.out.println(
+                            accountService.depositToAccount(
+                                    sbInput.toString().split(";")[0]
+                                    , Long.parseLong(sbInput.toString().split(";")[1])
+                            )
+                    );
                 } else if (input.equals("3")) {
-
+                    System.out.println("[출금]");
+                    System.out.println("계좌 번호 : ");
+                    sbInput.append(scanner.nextLine().trim()+";");
+                    System.out.println("출금액 : ");
+                    sbInput.append(scanner.nextLine().trim()+";");
+                    System.out.println(
+                            accountService.withdrawFromAccount(
+                                    sbInput.toString().split(";")[0]
+                                    , Long.parseLong(sbInput.toString().split(";")[1])
+                            )
+                    );
                 } else if (input.equals("4")) {
-
+                    System.out.println("[잔액 조회]");
+                    System.out.println("계좌 번호 : ");
+                    String accountNo = scanner.nextLine();
+                    System.out.println(accountService.findBalance(accountNo));
                 } else if (input.equals("5")) {
                     System.out.println(accountService.findAllAccounts());
                 } else if (input.equals("0")) {

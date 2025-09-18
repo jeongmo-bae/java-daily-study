@@ -50,7 +50,7 @@ public class AccountService {
         List<Account> accountList = accountRepository.findAll();
         StringBuffer returnVal = new StringBuffer() ;
         for(Account account : accountList){
-            returnVal.append(String.format("계좌번호 : %s | 예금주 : %s | 잔액 : %d",account.getAccountNo(),account.getOwnerName(),account.getBalance()));
+            returnVal.append(String.format("계좌번호 : %s | 예금주 : %s | 잔액 : %d\n",account.getAccountNo(),account.getOwnerName(),account.getBalance()));
         }
         return returnVal.toString();
     }
