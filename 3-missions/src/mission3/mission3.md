@@ -1,4 +1,4 @@
-# Day 3 요구사항 : 회원 관리 
+# Day 3 요구사항 : 주문 및 할인 서비스 처리
 - 추후 Spring 학습에 사용될 예제임.
 - [spring-study-location](https://github.com/jeongmo-bae/spring/tree/main/src/main/java/study/member)
 
@@ -14,7 +14,7 @@
   - 할인 정책은 변경 가능성이 높다. 회사의 기본 할인 정책을 아직 정하지 못했고, 
     오픈 직전까지 고민을 미루고 싶다. 최악의 경우 할인을 적용하지 않을 수 도 있다. (미확정)
 - **회원 도메인 클래스 다이어그램**
-  - ![img.png](pictures/img.png)
+  - ![img_2.png](pictures/memberDomain.png)
 - **주문 도메인 클래스 다이어그램**
-  - ![img_1.png](pictures/img_1.png)
+  - ![img_1.png](pictures/orderDomain.png)
 
