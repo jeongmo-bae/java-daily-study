@@ -1,5 +1,7 @@
 package mission3.repository;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import mission3.domain.Member;
 import java.util.Optional;
@@ -15,7 +17,7 @@ public class MemoryMemberRepository implements MemberRepository{
     }
     @Override
     public Optional<Member> findById(Long id){
-        return Optinal.ofNullable(memberMap.get(id));
+        return Optional.ofNullable(memberMap.get(id));
     }
 
     @Override
