@@ -7,18 +7,17 @@ import mission1.service.StudentService;
 import java.util.Scanner;
 
 public class Main {
-    private static final String MENU = """
-        =====================
-        학생 성적 관리 프로그램
-        1. 학생 추가
-        2. 학생 목록 조회
-        3. 학생 검색 (학번)
-        4. 학생 수정 (점수 변경)
-        5. 학생 삭제
-        6. 프로그램 종료
-        =====================
-        선택 : 
-        """;
+    private static final String MENU = "=====================\n"
+        + "학생 성적 관리 프로그램\n"
+        + "1. 학생 추가\n"
+        + "2. 학생 목록 조회\n"
+        + "3. 학생 검색 (학번)\n"
+        + "4. 학생 수정 (점수 변경)\n"
+        + "5. 학생 삭제\n"
+        + "6. 프로그램 종료\n"
+        + "=====================\n"
+        + "선택 : ";
+        
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

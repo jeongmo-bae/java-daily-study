@@ -5,7 +5,7 @@ import mission3.domain.Member;
 import java.util.Optional;
 
 public class MemoryMemberRepository implements MemberRepository{
-    private Map<String, Member> memberMap = new HashMap<>();
+    private Map<Long, Member> memberMap = new HashMap<>();
 
     @Override
     public void save(Member member){
@@ -14,7 +14,7 @@ public class MemoryMemberRepository implements MemberRepository{
         }
     }
     @Override
-    public Optional<Member> findById(String id){
+    public Optional<Member> findById(Long id){
         return Optinal.ofNullable(memberMap.get(id));
     }
 

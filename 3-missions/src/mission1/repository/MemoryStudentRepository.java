@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import mission1.domain.Student;
 
@@ -30,7 +31,7 @@ public class MemoryStudentRepository implements StudentRepository{
     @Override
     public List<Student> findByAll(){
         List<Student> studentList = new ArrayList<>();
-        studentList = storage.values().stream().toList() ;
+        studentList = storage.values().stream().collect(Collectors.toList()); ;
         return studentList;
     }
 
