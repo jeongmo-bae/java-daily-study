@@ -1,6 +1,4 @@
-package mission3.service;
-
-import mission3.domain.Member;
+package mission3.member;
 
 public interface MemberService {
     void join(Member member);

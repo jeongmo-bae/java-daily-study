@@ -1,12 +1,12 @@
-package mission3.repository;
+package mission3.member;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import mission3.domain.Member;
+
 import java.util.Optional;
 
-public class MemoryMemberRepository implements MemberRepository{
+public class MemoryMemberRepository implements MemberRepository {
     private Map<Long, Member> memberMap = new HashMap<>();
 
     @Override

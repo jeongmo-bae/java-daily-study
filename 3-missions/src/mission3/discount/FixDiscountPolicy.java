@@ -1,7 +1,7 @@
-package mission3.service;
+package mission3.discount;
 
-import mission3.domain.Grade;
-import mission3.domain.Member;
+import mission3.member.Grade;
+import mission3.member.Member;
 
 public class FixDiscountPolicy implements DiscountPolicy{
     private int fixedDiscountAmount = 1000;

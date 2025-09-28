@@ -1,12 +1,9 @@
-package mission3.service;
+package mission3.member;
 
-import mission3.domain.Member;
-import mission3.repository.MemberRepository;
-import mission3.repository.MemoryMemberRepository;
-
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository ;
 
+    // 생성자 주입
     public MemberServiceImpl(MemberRepository memberRepository){
         this.memberRepository = memberRepository;
     }

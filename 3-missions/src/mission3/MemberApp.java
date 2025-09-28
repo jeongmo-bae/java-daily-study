@@ -1,17 +1,19 @@
 package mission3;
 
-import mission3.domain.Grade;
-import mission3.domain.Member;
-import mission3.repository.MemberRepository;
-import mission3.repository.MemoryMemberRepository;
-import mission3.service.MemberService;
-import mission3.service.MemberServiceImpl;
+import mission3.member.Grade;
+import mission3.member.Member;
+import mission3.member.MemberRepository;
+import mission3.member.MemoryMemberRepository;
+import mission3.member.MemberService;
+import mission3.member.MemberServiceImpl;
 
 public class MemberApp {
     private static final MemberRepository memberRepository = new MemoryMemberRepository();
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl(memberRepository);
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+//        MemberService memberService = new MemberServiceImpl(memberRepository);
         Member member1 = new Member(1L,"member1",Grade.BASIC);
         memberService.join(member1);
 

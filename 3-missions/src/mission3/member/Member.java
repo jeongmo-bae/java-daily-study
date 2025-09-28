@@ -1,4 +1,4 @@
-package mission3.domain;
+package mission3.member;
 
 public class Member {
     private Long id;

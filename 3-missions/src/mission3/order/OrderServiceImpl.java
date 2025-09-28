@@ -1,9 +1,7 @@
-package mission3.service;
+package mission3.order;
 
-import mission3.domain.Member;
-import mission3.domain.Order;
-import mission3.repository.MemberRepository;
-import mission3.repository.MemoryMemberRepository;
+import mission3.discount.DiscountPolicy;
+import mission3.member.MemberRepository;
 
 public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;

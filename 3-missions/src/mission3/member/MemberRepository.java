@@ -1,9 +1,7 @@
-package mission3.repository;
+package mission3.member;
 
 import java.util.List;
 import java.util.Optional;
-
-import mission3.domain.Member;
 
 public interface MemberRepository {
     void save(Member member);

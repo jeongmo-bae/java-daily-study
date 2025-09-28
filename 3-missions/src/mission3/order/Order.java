@@ -1,4 +1,4 @@
-package mission3.domain;
+package mission3.order;
 
 public class Order {
     private Long memberId;
